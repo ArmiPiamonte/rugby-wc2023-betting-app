@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_18_144327) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_18_144553) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_144327) do
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "match_id", null: false
+    t.index ["match_id"], name: "index_losers_on_match_id"
     t.index ["team_id"], name: "index_losers_on_team_id"
   end
 
@@ -76,15 +78,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_144327) do
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "match_id", null: false
+    t.index ["match_id"], name: "index_winners_on_match_id"
     t.index ["team_id"], name: "index_winners_on_team_id"
   end
 
   add_foreign_key "bets", "matches"
   add_foreign_key "bets", "users"
+  add_foreign_key "losers", "matches"
   add_foreign_key "losers", "teams"
   add_foreign_key "matches", "losers"
   add_foreign_key "matches", "teams", column: "away_team_id"
   add_foreign_key "matches", "teams", column: "home_team_id"
   add_foreign_key "matches", "winners"
+  add_foreign_key "winners", "matches"
   add_foreign_key "winners", "teams"
 end
