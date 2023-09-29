@@ -1,6 +1,6 @@
 class Match < ApplicationRecord
-  belongs_to :winner, class_name: 'Team', foreign_key: 'winner_id'
-  belongs_to :loser, class_name: 'Team', foreign_key: 'loser_id'
-  belongs_to :home_team, class_name: 'Team', foreign_key: 'home_team_id', optional: true
-  belongs_to :away_team, class_name: 'Team', foreign_key: 'away_team_id', optional: true
+  has_many :bets
+  has_one :result
+  belongs_to :team_1, class_name: 'Team', foreign_key: 'team_1_id'
+  belongs_to :team_2, class_name: 'Team', foreign_key: 'team_2_id'
 end

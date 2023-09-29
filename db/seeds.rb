@@ -1,5 +1,7 @@
 p 'destroying teams'
 
+Result.destroy_all
+Match.destroy_all
 Team.destroy_all
 
 p 'clean slate'
@@ -128,18 +130,576 @@ Team.create!(
 
 p ' Teams done'
 
-# --------------------- Matches -----------------------------------------------
+# --------------------- MATCHES & RESULT  --------------------------------------
 
-p 'creating matches'
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 8)
+# ------------------------------------------------------------------------------
 
-match_date = Date.new(2023, 9, 8)
-france = Team.find_by(country: 'France')
-new_zealand = Team.find_by(country: 'New Zealand')
-Match.create!(
-  winner: france,
-  loser: new_zealand,
-  date: match_date.strftime('%A, %d %B %Y'),
+team_1 = Team.find_by(country: 'France')
+team_2 = Team.find_by(country: 'New Zealand')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'A'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 27,
+  losing_score: 13
+)
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 9)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Italy')
+team_2 = Team.find_by(country: 'Namibia')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'A'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 52,
+  losing_score: 8
+)
+
+
+team_1 = Team.find_by(country: 'Ireland')
+team_2 = Team.find_by(country: 'Romania')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'B'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 82,
+  losing_score: 8
+)
+
+team_1 = Team.find_by(country: 'Australia')
+team_2 = Team.find_by(country: 'Georgia')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'C'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 35,
+  losing_score: 15
+)
+
+team_1 = Team.find_by(country: 'England')
+team_2 = Team.find_by(country: 'Argentina')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'D'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 27,
+  losing_score: 10
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 10)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Japan')
+team_2 = Team.find_by(country: 'Chile')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'D'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 42,
+  losing_score: 12
+)
+
+team_1 = Team.find_by(country: 'South Africa')
+team_2 = Team.find_by(country: 'Scotland')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'B'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 18,
+  losing_score: 3
+)
+
+team_1 = Team.find_by(country: 'Wales')
+team_2 = Team.find_by(country: 'Fiji')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'C'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 32,
+  losing_score: 26
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 14)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'France')
+team_2 = Team.find_by(country: 'Uruguay')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'A'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 27,
+  losing_score: 12
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 15)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'New Zealand')
+team_2 = Team.find_by(country: 'Namibia')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'A'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 71,
+  losing_score: 3
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 16)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Samoa')
+team_2 = Team.find_by(country: 'Chile')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'D'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 43,
+  losing_score: 10
+)
+
+team_1 = Team.find_by(country: 'Wales')
+team_2 = Team.find_by(country: 'Portugal')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'C'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 28,
+  losing_score: 8
+)
+
+team_1 = Team.find_by(country: 'Ireland')
+team_2 = Team.find_by(country: 'Tonga')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'B'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 59,
+  losing_score: 16
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 17)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'South Africa')
+team_2 = Team.find_by(country: 'Romania')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'B'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 76,
+  losing_score: 0
+)
+
+team_1 = Team.find_by(country: 'Australia')
+team_2 = Team.find_by(country: 'Fiji')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'C'
+)
+Result.create!(
+  match: match,
+  winner: team_2,
+  loser: team_1,
+  winning_score: 22,
+  losing_score: 15
+)
+
+team_1 = Team.find_by(country: 'England')
+team_2 = Team.find_by(country: 'Japan')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'D'
+)
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 34,
+  losing_score: 12
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 20)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Italy')
+team_2 = Team.find_by(country: 'Uruguay')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'A'
+)
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 21)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'France')
+team_2 = Team.find_by(country: 'Namibia')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'A'
+)
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 22)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Argentina')
+team_2 = Team.find_by(country: 'Samoa')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'D'
+)
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 23)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Georgia')
+team_2 = Team.find_by(country: 'Portugal')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'C'
+)
+
+team_1 = Team.find_by(country: 'England')
+team_2 = Team.find_by(country: 'Chile')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'D'
+)
+
+team_1 = Team.find_by(country: 'South Africa')
+team_2 = Team.find_by(country: 'Ireland')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'B'
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 24)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Scotland')
+team_2 = Team.find_by(country: 'Tonga')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'B'
+)
+
+team_1 = Team.find_by(country: 'Wales')
+team_2 = Team.find_by(country: 'Australia')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'C'
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 27)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Uruguay')
+team_2 = Team.find_by(country: 'Namibia')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
   pool: 'A'
 )
 
-p 'done'
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 28)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Japan')
+team_2 = Team.find_by(country: 'Samoa')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'D'
+)
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 29)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'New Zealand')
+team_2 = Team.find_by(country: 'Italy')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'A'
+)
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 9, 30)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Argentina')
+team_2 = Team.find_by(country: 'Chile')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'D'
+)
+
+team_1 = Team.find_by(country: 'Fiji')
+team_2 = Team.find_by(country: 'Georgia')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'C'
+)
+
+team_1 = Team.find_by(country: 'Scotland')
+team_2 = Team.find_by(country: 'Romania')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'B'
+)
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 10, 1)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Australia')
+team_2 = Team.find_by(country: 'Portugal')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'C'
+)
+
+team_1 = Team.find_by(country: 'South Africa')
+team_2 = Team.find_by(country: 'Tonga')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'B'
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 10, 5)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'New Zealand')
+team_2 = Team.find_by(country: 'Uruguay')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'A'
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 10, 6)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'France')
+team_2 = Team.find_by(country: 'Italy')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'A'
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 10, 7)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Wales')
+team_2 = Team.find_by(country: 'Georgia')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'C'
+)
+
+team_1 = Team.find_by(country: 'England')
+team_2 = Team.find_by(country: 'Samoa')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'D'
+)
+
+team_1 = Team.find_by(country: 'Ireland')
+team_2 = Team.find_by(country: 'Scotland')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'B'
+)
+
+p "#{date} matches done"
+
+# ------------------------------------------------------------------------------
+date = Date.new(2023, 10, 8)
+# ------------------------------------------------------------------------------
+team_1 = Team.find_by(country: 'Japan')
+team_2 = Team.find_by(country: 'Argentina')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'D'
+)
+
+team_1 = Team.find_by(country: 'Tonga')
+team_2 = Team.find_by(country: 'Romania')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'B'
+)
+
+team_1 = Team.find_by(country: 'Fiji')
+team_2 = Team.find_by(country: 'Portugal')
+match = Match.create!(
+  team_1: team_1,
+  team_2: team_2,
+  date: date,
+  pool: 'C'
+)
+
+p "#{date} matches done"

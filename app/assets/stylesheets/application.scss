@@ -2,6 +2,24 @@
 @import "bootstrap";
 @import "font-awesome";
 
+// Configuration
+@import "configuration/fonts";
 
 // Views
 @import "teams/index";
+@import "matches/index";
+@import "bets/index";
+
+// Components
+@import "components/flag";
+@import "components/pool";
+@import "components/score";
+@import "components/add-button";
+
+body {
+  background-color: #19194B;
+
+  h1, h2, h3 {
+    color: white;
+  }
+}

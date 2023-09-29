@@ -1,0 +1,63 @@
+<div class="container mx-auto">
+  <h1 class="text-center">POOL STAGE</h1>
+  <% @matches_by_date.each do |date, matches|%>
+    <h3><%= date.strftime('%A') %>, <%= date.strftime('%d %B %Y') %> </h3>
+    <div class="row justify-content-start">
+      <% matches.each do |match| %>
+        <div class="match-card m-4 col-sm-12 col-md-4 col-lg-3">
+          <div class="pool">
+            <p>POOL <%= match.pool %></p>
+          </div>
+          <% if match.result.present? %>
+          <div class="teams">
+            <div class="team">
+              <p><%= match.team_1.country %></p>
+              <%= image_tag match.team_1.flag, class: "flag" %>
+            </div>
+
+            <div>
+              <% if match.team_1 == match.result.winner %>
+                <p class="score"><%= match.result.winning_score %></p>
+                <% else %>
+                <p class="score"><%= match.result.losing_score %></p>
+              <% end %>
+
+              <% if match.team_2 == match.result.winner %>
+                <p class="score"><%= match.result.winning_score %></p>
+                <% else %>
+                <p class="score"><%= match.result.losing_score %></p>
+              <% end %>
+            </div>
+
+            <div class="team">
+              <p><%= match.team_2.country %></p>
+              <%= image_tag match.team_2.flag, class: "flag" %>
+            </div>
+          </div>
+          <% else %>
+            <div class="teams d-flex align-items-center gap-3">
+             <div class="team">
+                <p><%= match.team_1.country %></p>
+                <%= image_tag match.team_1.flag, class: "flag" %>
+              </div>
+              <p>VS</p>
+              <div class="team">
+                <p><%= match.team_2.country %></p>
+                <%= image_tag match.team_2.flag, class: "flag" %>
+              </div>
+            </div>
+            <div class="text-center">
+              <p>Result Pending</p>
+            </div>
+            <%= link_to match_bets_path(match), data: {turbo_method: :post} do%>
+              <div class="bet">
+                <span class="add-button">+</span>
+                <p>Predict the Winner and Score!</p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

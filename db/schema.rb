@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_18_154928) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_28_141306) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,25 +25,34 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_154928) do
     t.index ["user_id"], name: "index_bets_on_user_id"
   end
 
-  create_table "losers", force: :cascade do |t|
-    t.bigint "team_id", null: false
-    t.integer "score"
+  create_table "leagues", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "match_id", null: false
-    t.index ["match_id"], name: "index_losers_on_match_id"
-    t.index ["team_id"], name: "index_losers_on_team_id"
   end
 
   create_table "matches", force: :cascade do |t|
-    t.bigint "winner_id", null: false
-    t.bigint "loser_id", null: false
+    t.bigint "team_1_id", null: false
+    t.bigint "team_2_id", null: false
     t.date "date"
     t.string "pool"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["loser_id"], name: "index_matches_on_loser_id"
-    t.index ["winner_id"], name: "index_matches_on_winner_id"
+    t.index ["team_1_id"], name: "index_matches_on_team_1_id"
+    t.index ["team_2_id"], name: "index_matches_on_team_2_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.integer "winning_score"
+    t.integer "losing_score"
+    t.bigint "winner_id", null: false
+    t.bigint "loser_id", null: false
+    t.bigint "match_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loser_id"], name: "index_results_on_loser_id"
+    t.index ["match_id"], name: "index_results_on_match_id"
+    t.index ["winner_id"], name: "index_results_on_winner_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -62,29 +71,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_154928) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.integer "points"
-    t.string "league"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "winners", force: :cascade do |t|
-    t.bigint "team_id", null: false
-    t.integer "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "match_id", null: false
-    t.index ["match_id"], name: "index_winners_on_match_id"
-    t.index ["team_id"], name: "index_winners_on_team_id"
-  end
-
   add_foreign_key "bets", "matches"
   add_foreign_key "bets", "users"
-  add_foreign_key "losers", "matches"
-  add_foreign_key "losers", "teams"
-  add_foreign_key "matches", "losers"
-  add_foreign_key "matches", "winners"
-  add_foreign_key "winners", "matches"
-  add_foreign_key "winners", "teams"
+  add_foreign_key "matches", "teams", column: "team_1_id"
+  add_foreign_key "matches", "teams", column: "team_2_id"
+  add_foreign_key "results", "matches"
+  add_foreign_key "results", "teams", column: "loser_id"
+  add_foreign_key "results", "teams", column: "winner_id"
 end

@@ -1,0 +1,30 @@
+<div class="conatiner w-75 mx-auto text-center">
+  <h1>Place your bet!</h1>
+
+<div class="row justify-content-center">
+  <div class="match-card col-sm-12 col-md-4 col-lg-3 my-3">
+    <h2 class="mb-2">Who will win?</h2>
+
+    <%= simple_form_for [@match, @bet] do |f| %>
+    <%= f.input :difference, label: 'Point Difference', label_html: { class: "label" }, input_html: {class: "input"} %>
+    <% end %>
+
+    <div class="teams mt-3">
+      <%= link_to match_bet_path(@match, @bet), data: {turbo_method: :patch} do%>
+        <div class="team">
+          <p><%= @match.team_1.country %></p>
+          <%= image_tag @match.team_1.flag, class: "flag" %>
+        </div>
+      <% end %>
+      <p>VS</p>
+      <%= link_to match_bet_path(@match, @bet), data: {turbo_method: :patch} do%>
+        <div class="team">
+          <p><%= @match.team_2.country %></p>
+          <%= image_tag @match.team_2.flag, class: "flag" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</div>
