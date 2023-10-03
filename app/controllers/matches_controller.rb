@@ -4,5 +4,6 @@ class MatchesController < ApplicationController
   def index
     @matches_by_date = Match.all.group_by { |match| match.date }
     @bet = Bet.new
+    @bets = Bet.all.group_by { |bet| bet.user }
   end
 end

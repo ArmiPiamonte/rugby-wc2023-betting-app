@@ -1,1 +1,29 @@
-@import "show"
+@import "show";
+
+.bets-container-index {
+  background-color: white;
+  padding: .9rem .8rem;
+  color: black;
+  border-radius: 1.6rem;
+
+  h1 {
+    color: black;
+    text-align: center;
+  }
+
+  .headers {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #dddde4;
+    padding: 0.5em;
+    text-align: center;
+  }
+
+  .bet-card-index {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #dddde4;
+  }
+}

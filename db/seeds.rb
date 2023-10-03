@@ -435,6 +435,14 @@ match = Match.create!(
   date: date,
   pool: 'A'
 )
+
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 38,
+  losing_score: 17
+)
 p "#{date} matches done"
 
 # ------------------------------------------------------------------------------
@@ -448,6 +456,15 @@ match = Match.create!(
   date: date,
   pool: 'A'
 )
+
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 96,
+  losing_score: 0
+)
+
 p "#{date} matches done"
 
 # ------------------------------------------------------------------------------
@@ -461,6 +478,15 @@ match = Match.create!(
   date: date,
   pool: 'D'
 )
+
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 19,
+  losing_score: 10
+)
+
 p "#{date} matches done"
 
 # ------------------------------------------------------------------------------
@@ -475,6 +501,14 @@ match = Match.create!(
   pool: 'C'
 )
 
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 18,
+  losing_score: 18
+)
+
 team_1 = Team.find_by(country: 'England')
 team_2 = Team.find_by(country: 'Chile')
 match = Match.create!(
@@ -484,6 +518,14 @@ match = Match.create!(
   pool: 'D'
 )
 
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 71,
+  losing_score: 0
+)
+
 team_1 = Team.find_by(country: 'South Africa')
 team_2 = Team.find_by(country: 'Ireland')
 match = Match.create!(
@@ -491,6 +533,14 @@ match = Match.create!(
   team_2: team_2,
   date: date,
   pool: 'B'
+)
+
+Result.create!(
+  match: match,
+  winner: team_2,
+  loser: team_1,
+  winning_score: 8,
+  losing_score: 13
 )
 
 p "#{date} matches done"
@@ -507,6 +557,14 @@ match = Match.create!(
   pool: 'B'
 )
 
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 45,
+  losing_score: 17
+)
+
 team_1 = Team.find_by(country: 'Wales')
 team_2 = Team.find_by(country: 'Australia')
 match = Match.create!(
@@ -514,6 +572,14 @@ match = Match.create!(
   team_2: team_2,
   date: date,
   pool: 'C'
+)
+
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 40,
+  losing_score: 6
 )
 
 p "#{date} matches done"
@@ -530,6 +596,14 @@ match = Match.create!(
   pool: 'A'
 )
 
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 36,
+  losing_score: 26
+)
+
 p "#{date} matches done"
 
 # ------------------------------------------------------------------------------
@@ -542,6 +616,14 @@ match = Match.create!(
   team_2: team_2,
   date: date,
   pool: 'D'
+)
+
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 28,
+  losing_score: 22
 )
 p "#{date} matches done"
 
@@ -556,6 +638,15 @@ match = Match.create!(
   date: date,
   pool: 'A'
 )
+
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 96,
+  losing_score: 17
+)
+
 p "#{date} matches done"
 
 # ------------------------------------------------------------------------------
@@ -570,6 +661,14 @@ match = Match.create!(
   pool: 'D'
 )
 
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 59,
+  losing_score: 5
+)
+
 team_1 = Team.find_by(country: 'Fiji')
 team_2 = Team.find_by(country: 'Georgia')
 match = Match.create!(
@@ -579,6 +678,14 @@ match = Match.create!(
   pool: 'C'
 )
 
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 17,
+  losing_score: 12
+)
+
 team_1 = Team.find_by(country: 'Scotland')
 team_2 = Team.find_by(country: 'Romania')
 match = Match.create!(
@@ -586,6 +693,14 @@ match = Match.create!(
   team_2: team_2,
   date: date,
   pool: 'B'
+)
+
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 84,
+  losing_score: 0
 )
 p "#{date} matches done"
 
@@ -601,6 +716,14 @@ match = Match.create!(
   pool: 'C'
 )
 
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 34,
+  losing_score: 14
+)
+
 team_1 = Team.find_by(country: 'South Africa')
 team_2 = Team.find_by(country: 'Tonga')
 match = Match.create!(
@@ -608,6 +731,14 @@ match = Match.create!(
   team_2: team_2,
   date: date,
   pool: 'B'
+)
+
+Result.create!(
+  match: match,
+  winner: team_1,
+  loser: team_2,
+  winning_score: 49,
+  losing_score: 18
 )
 
 p "#{date} matches done"

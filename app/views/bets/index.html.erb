@@ -1,0 +1,24 @@
+<div class="container">
+  <button class="back-button"><%= link_to 'Back to Matches', :root %></button>
+  <div class="bets-container-index">
+    <h1>Leaderboard</h1>
+    <div class="headers">
+      <p>User</p>
+      <p>Winning Team</p>
+      <p>Score Margin</p>
+      <p>Points</p>
+    </div>
+    <% @bets.each do |bet| %>
+      <div class="bet-card-index">
+        <p><%= bet.user.email  %></p>
+        <p><%= bet.winning_team %></p>
+        <p><%= bet.difference %></p>
+        <% if bet.user_score == 0 %>
+          <p>Result Pending</p>
+        <% else %>
+          <%= bet.user_score %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

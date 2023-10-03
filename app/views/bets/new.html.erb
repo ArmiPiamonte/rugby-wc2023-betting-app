@@ -1,0 +1,34 @@
+<div class="text-center">
+  <h1>Place your bet!</h1>
+
+<div class="row justify-content-center mt-3">
+  <div class="col-sm-12 col-md-8 col-lg-6">
+
+    <div class="bet-card-new" data-controller="selected-flag">
+      <%= simple_form_for [@match, @bet] do |f| %>
+        <h2 class="mb-2">WHO WILL WIN?</h2>
+        <p>GUESS RIGHT TO SCORE <span class="blue-text">+ 5 POINTS</span></p>
+        <div class="bet-form">
+          <label class="radio-option m-3" data-selected-flag-target="flag1">
+            <%= image_tag @match_teams[0].flag, class: 'flag' %>
+            <%= f.radio_button :winning_team, @match_teams[0].country, class: 'hidden-radio' %>
+          </label>
+          <p>VS</p>
+        <label class="radio-option m-3" data-selected-flag-target="flag2">
+            <%= image_tag @match_teams[1].flag, class: 'flag' %>
+            <%= f.radio_button :winning_team, @match_teams[1].country, class: 'hidden-radio' %>
+          </label>
+        </div>
+
+        <p class="mb-3">GUESS RIGHT TO SCORE <span class="blue-text">+ 20 POINTS</span></p>
+        <div class="bet-form">
+        <%= f.input :difference, label: 'Score Margin', input_html: {class: "input"} %>
+        </div>
+        <%= f.button :submit, "Submit Bet" %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+</div>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'matches#index'
   resources :matches, only: %i[update] do
-    resources :bets, only: %i[show new create update index]
+    resources :bets, only: %i[edit new create update index]
   end
   resources :users do
     resources :leagues, only: %i[new create]

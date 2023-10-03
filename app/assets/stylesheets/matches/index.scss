@@ -1,12 +1,48 @@
+.bets {
+  background-color: white;
+  padding: .9rem .8rem;
+  color: black;
+  border-radius: 1.6rem;
+  margin-top: -10px;
+
+  h1 {
+    color: black;
+    text-align: center;
+  }
+}
+
+.bet-headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dddde4;
+  padding: 0 .5em;
+}
+
+.bet-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 .5em;
+}
+
+.matches {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .match-card {
   background-color: white;
-  width: 360px;
+  width: 48%;
   position: relative;
   padding-top: 40px;
   border: 0.1rem solid #dddde4;
   border-radius: 1.6rem;
   padding: 1.8rem 1.6rem;
   box-shadow: 0 0.4rem 0 #dddde4, 0 -0.4rem 0 #dddde4;
+  margin-bottom: 3em;
 
   h2{
     color: black;
